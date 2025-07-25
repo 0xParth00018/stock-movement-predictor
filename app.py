@@ -10,7 +10,6 @@ if "." not in ticker_input:
 else:
     ticker = ticker_input
 
-
 if st.button("Predict"):
     with st.spinner("Fetching data and training model..."):
         df = get_stock_data(ticker)
