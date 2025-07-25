@@ -4,7 +4,12 @@ from model import create_features, train_model
 
 st.title("📈 Stock Price Movement Predictor")
 
-ticker = st.text_input("Enter Stock Ticker (e.g., TCS.NS, ZOMATO.NS, AAPL, TSLA, INFY)", "AAPL")
+ticker_input = st.text_input("Enter Stock Ticker (e.g., TCS.NS, ZOMATO.NS, AAPL, TSLA, INFY)").upper()
+if "." not in ticker_input:
+    ticker = ticker_input + ".NS"
+else:
+    ticker = ticker_input
+
 
 if st.button("Predict"):
     with st.spinner("Fetching data and training model..."):
